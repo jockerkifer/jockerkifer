@@ -1,7 +1,6 @@
+import { SindicanciasModule } from './sindicancias/sindicancias.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
-import { UsuariosController } from './usuarios/usuarios.controller';
 import { AuthModule } from './auth/auth.module';
-import { AuthController } from './auth/auth.controller';
 import { GruposModule } from './grupos/grupos.module';
 import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { Module } from '@nestjs/common';
@@ -13,6 +12,7 @@ import { StatusModule } from './status/status.module';
 
 @Module({
   imports: [
+    SindicanciasModule,
     UsuariosModule,
     AuthModule,
     GruposModule,

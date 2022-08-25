@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Usuarios } from './interface/usuarios.interface';
+import * as bcrypt from 'bcrypt'
 
 @Injectable()
 export class UsuariosService {
@@ -9,6 +10,9 @@ export class UsuariosService {
 
     async criarCadastro(createUsuariosDto){
         try{
+            const saltOrRounds = 10
+            const hash = await bcrypt.hash(createUsuariosDto.password,saltOrRounds)
+            createUsuariosDto.password = hash
             const criar = await new this.usuariosModel(createUsuariosDto)
             criar.save()
             return criar
@@ -32,7 +36,7 @@ export class UsuariosService {
     }
 
     async buscaEmail(email:string){
-        const buscaEmail = await this.usuariosModel.findOne({email}).exec
+        const buscaEmail = await this.usuariosModel.findOne({email})
         if(!buscaEmail){
             throw new BadRequestException(`${email} não encontrado`)
         }
