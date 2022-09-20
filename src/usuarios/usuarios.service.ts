@@ -16,6 +16,7 @@ export class UsuariosService {
             const criar = await new this.usuariosModel(createUsuariosDto)
             criar.save()
             return criar
+           
         }
         catch(error){
             throw new BadRequestException (`Erro ${error} ao cadastrar Usuario, tente novamente!!!`)
@@ -50,6 +51,7 @@ export class UsuariosService {
                 throw new BadRequestException(`Usuario não localizado`)
             }
             const atualizar =  await this.usuariosModel.updateOne({_id},updateUsuariosDto)
+            console.log(atualizar)
             return atualizar
         }
         catch(error){

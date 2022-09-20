@@ -32,6 +32,14 @@ export class PresosService {
         return buscaId
     }
 
+    async buscaMatricula(det_matricula:string){
+        const buscaMatricula = await this.PresosModel.findOne({det_matricula})
+        if(!buscaMatricula){
+            throw new BadRequestException(`${det_matricula} não encontrada`)
+        }
+        return buscaMatricula
+    }
+
     async atualizar(_id, updatePresosDto){
         try {
             const buscaId =await this.PresosModel.findById(_id)

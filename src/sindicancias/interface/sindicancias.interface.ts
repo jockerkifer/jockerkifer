@@ -35,18 +35,7 @@ export interface Sindicancias extends Document{
     saida_rcd_10dias:Date;
     det_nome:String;
     rg:Number;
-    det_mae:String;
-    det_nascimento: Date;
-    det_pai: String;
-    escolaridade: String;
-    inc_procedencia: String;
-    natureza_prisao: String;
-    inc_artigo: String;
-    inc_raio: Number;
-    etinia: String;
-    inc_bo: String;
-    det_execução: String;
-    cpf: String;
+    presos:[String];
     createdAt:Date;
     updatedAt: Date
 }
