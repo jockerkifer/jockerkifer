@@ -32,20 +32,7 @@ export class CreateSindicanciasDto{
     inicio_rcd_20dias: Date;
     saida_rcd_20dias:Date;
     saida_rcd_10dias:Date;
-    det_nome:string;
-    rg:number;
-    det_mae:string;
-    det_nascimento: Date;
-    det_pai: string;
-    escolaridade: string;
-    inc_procedencia: string;
-    natureza_prisao: string;
-    inc_artigo: string;
-    inc_raio: number;
-    etinia: string;
-    inc_bo: string;
-    det_execução: string;
-    cpf: string;
+    presos:[string];
     createdAt: Date;
     updatedAt:Date
 }

@@ -1,4 +1,5 @@
 import currentDate from '@nestjs/common'
+import { Types } from 'mongoose';
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
@@ -163,75 +164,12 @@ export const SindicanciaSchema =  new Schema({
         require:true
     },
 
-    det_nome:{
-        type: String,
-        require: true
-    },
-    
-    rg:{
-        type: Number,
-        require:true
-    },
-    
-    det_mae:{
-        type: String,
-        require: true
-    },
-    
-    det_nascimento: {
-        type: Date,
-        require: true
-    },
-    
-    det_pai: {
-        type: String,
-        require: true
-    },
-    
-    escolaridade: {
-        type: String,
-        require: true
-    },
-    
-    inc_procedencia: {
-        type: String,
-        require: true
-    },
-    
-    natureza_prisao: {
-        type: String,
-        require: true
-    },
-    
-    inc_artigo: {
-        type: String,
-        require: true
-    },
-    
-    inc_raio: {
-        type: Number,
-        require: true
-    },
-    
-    etinia :{
-        type: String,
-        require:true
-    },
-    
-    inc_bo: {
-        type: String,
-        require: true
-    },
-    
-    det_execução: {
-        type: String,
-        require: true
-    },
-    
-    cpf: {
-        type: String,
-        require:true
-    },
+    presos:[
+        {
+            type: Schema.Types.ObjectId,
+            require: true
+        }
+    ],
 
     createdAt: {
         type: Date,
